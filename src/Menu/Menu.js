@@ -5,13 +5,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const Menu = () => {
-    const [isMobileMenu, setIsMobileMenu] = useState(window?.document?.body?.clientWidth > 800 ? false : true);
+    const [isMobileMenu, setIsMobileMenu] = useState();
     const [left, setLeft] = useState(-200);
     const [menuItem, setMenuItem] = useState("");
     const pathname = usePathname();
 
     useEffect(() => {
         setMenuItem(pathname?.slice(1) || 'home');
+        setIsMobileMenu(window?.document?.body?.clientWidth > 800 ? false : true);
         window.addEventListener("resize", fnResize);
     }, [])
 
