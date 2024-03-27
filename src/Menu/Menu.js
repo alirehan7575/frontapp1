@@ -12,6 +12,7 @@ const Menu = () => {
 
     useEffect(() => {
         setMenuItem(pathname?.slice(1) || 'home');
+        window.addEventListener("resize", fnResize);
     }, [])
 
     const fnResize = () => {
@@ -21,7 +22,7 @@ const Menu = () => {
             setIsMobileMenu(false);
         }
     }
-    window.addEventListener("resize", fnResize);
+
 
     const handleMobileMenuBtnClick = () => {
         setLeft(left == 0 ? -200 : 0);
